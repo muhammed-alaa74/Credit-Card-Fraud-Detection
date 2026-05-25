@@ -1,0 +1,25 @@
+# Dataset (too large for GitHub)
+data/raw/creditcard.csv
+data/
+
+# Trained models (large binary files)
+models/*.pkl
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+venv/
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
