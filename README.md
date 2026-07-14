@@ -276,6 +276,3 @@ pillow
 
 [MIT](LICENSE)
 
----
-
-<p align="center">Built by <a href="https://github.com/muhammed-alaa74">Mohamed El-Meligi</a> · Python · Streamlit · FastAPI · scikit-learn · XGBoost</p>
