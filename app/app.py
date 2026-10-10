@@ -257,7 +257,11 @@ st.markdown("""
 BASE_DIR = Path(__file__).resolve().parent.parent
 rf_model  = joblib.load(BASE_DIR / "models" / "random_forest.pkl")
 xgb_model = joblib.load(BASE_DIR / "models" / "xgboost.pkl")
-data_path = BASE_DIR / "data" / "raw" / "creditcard.csv"
+
+# Full dataset locally; small pre-engineered sample on Streamlit Cloud
+full_path   = BASE_DIR / "data" / "raw" / "creditcard.csv"
+sample_path = BASE_DIR / "sample_data" / "creditcard_sample.csv"
+data_path   = full_path if full_path.exists() else sample_path
 
 # =========================
 # Load Data
@@ -289,7 +293,8 @@ def feature_engineering(df_in):
     d['amount_per_hour'] = d['Amount'] / (d['Hour'] + 1)
     return d
 
-df_feat = feature_engineering(df)
+# The sample is already engineered (stats computed on the full dataset)
+df_feat = df if "scaled_amount" in df.columns else feature_engineering(df)
 
 # =========================
 # Transaction Selector
