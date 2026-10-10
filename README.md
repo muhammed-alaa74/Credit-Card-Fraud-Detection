@@ -18,19 +18,38 @@
   served through a Streamlit dashboard and a FastAPI backend.
 </p>
 
+<p align="center">
+  <a href="https://credit-card-fraud-detection-v.streamlit.app/">
+    <img src="https://static.streamlit.io/badges/streamlit_badge_black_white.svg" alt="Open in Streamlit" />
+  </a>
+</p>
+
+---
+
+## Live Demo
+
+**[Try the live app → credit-card-fraud-detection-v.streamlit.app](https://credit-card-fraud-detection-v.streamlit.app/)**
+
+Pick any transaction from the dataset, run both models, and compare their fraud probabilities side by side.
+
+> The hosted demo runs on a 4,992-row sample (all 492 fraud cases + 4,500 legitimate ones) because the full dataset is too large for GitHub. Run it locally with the full `creditcard.csv` for the complete 284,807 transactions.
+
 ---
 
 ## Project Structure
 
 ```
-Fraud-Detection/
+Credit-Card-Fraud-Detection/
 │
 ├── app/
 │   └── app.py                              # Streamlit dashboard
 │
-├── data/
+├── data/                                   # Git-ignored (too large for GitHub)
 │   ├── raw/                                # Original dataset (creditcard.csv)
 │   └── processed/                          # Cleaned & engineered data
+│
+├── sample_data/
+│   └── creditcard_sample.csv               # Pre-engineered sample used by the hosted demo
 │
 ├── models/
 │   ├── random_forest.pkl                   # Trained Random Forest model
@@ -55,8 +74,8 @@ Fraud-Detection/
 
 **1. Clone the repo**
 ```bash
-git clone https://github.com/muhammed-alaa74/credit-card-fraud-detection.git
-cd credit-card-fraud-detection
+git clone https://github.com/muhammed-alaa74/Credit-Card-Fraud-Detection.git
+cd Credit-Card-Fraud-Detection
 ```
 
 **2. Install dependencies**
@@ -64,7 +83,7 @@ cd credit-card-fraud-detection
 pip install -r requirements.txt
 ```
 
-**3. Download the dataset**
+**3. Download the dataset** *(optional, the app falls back to `sample_data/` without it)*
 
 Get `creditcard.csv` from [Kaggle](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud) and place it in `data/raw/`.
 
@@ -263,16 +282,6 @@ pillow
 
 ---
 
-## Roadmap
-
-- [ ] SHAP explainability per transaction
-- [ ] Batch prediction via CSV upload
-- [ ] ROC / PR curve metrics in dashboard
-- [ ] Deploy to Streamlit Cloud
-
----
-
 ## License
 
 [MIT](LICENSE)
-
